@@ -13,26 +13,30 @@ package com.fouche.tp3sdprinciples.behavioral.mediator;
 public class Mediator {
     Buyer swedishBuyer;
     Buyer frenchBuyer;
-    AmericanSeller usaSeller;
+    AmericanSeller americanSeller;
     DollarConverter dollarConverter;
+
+    public Mediator() {
+    }
     
-    public Mediator(){
-        
+    public void registerSwedishBuyer(SwedishBuyer swedishBuyer){
+        this.swedishBuyer = swedishBuyer;      
     }
-    public void regSwedishBuyer(SwedishBuyer swedBuyer) {
-        this.swedishBuyer=swedBuyer;
+    
+    public void registerFrenchBuyer(FrenchBuyer frenchBuyer){
+        this.frenchBuyer = frenchBuyer;
     }
-    public void regFrenchBuyer(FrenchBuyer frenchBuyer) {
-        this.frenchBuyer=frenchBuyer;
+    
+    public void registerAmericanSeller(AmericanSeller americanSeller){
+        this.americanSeller = americanSeller;
     }
-    public void regAmericanSeller(AmericanSeller usaSeller) {
-        this.usaSeller=usaSeller;
+    
+    public void registerDollarConverter(DollarConverter dollarConverter){
+        this.dollarConverter = dollarConverter;
     }
-    public void regDollarConverter(DollarConverter dollarConverter) {
-        this.dollarConverter=dollarConverter;
-    }
+    
     public boolean placeBid(float bid, String unitOfCurrency){
         float dollarAmount = dollarConverter.convertCurrencyToDollars(bid, unitOfCurrency);
-        return usaSeller.isBidAccepted(dollarAmount);
+        return americanSeller.isBidAccepted(dollarAmount);
     }
 }

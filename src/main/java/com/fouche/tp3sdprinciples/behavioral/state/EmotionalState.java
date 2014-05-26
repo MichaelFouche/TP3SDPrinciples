@@ -4,16 +4,13 @@
  * and open the template in the editor.
  */
 
-package com.fouche.tp3sdprinciples.creational.abstractfactory;
-
+package com.fouche.tp3sdprinciples.behavioral.state;
 
 /**
  *
  * @author foosh
  */
-public class Snake extends Animal{
-     @Override
-    public String makeSound(){
-        return "Hiss";
-    }
+public interface EmotionalState {
+    public String sayHello();
+    public String sayGoodbye();
 }

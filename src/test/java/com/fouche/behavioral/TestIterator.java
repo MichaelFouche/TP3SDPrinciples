@@ -4,11 +4,10 @@
  * and open the template in the editor.
  */
 
-package com.fouche.creational;
+package com.fouche.behavioral;
 
-import com.fouche.tp3sdprinciples.creational.abstractfactory.AbstractFactory;
-import com.fouche.tp3sdprinciples.creational.abstractfactory.Animal;
-import com.fouche.tp3sdprinciples.creational.abstractfactory.SpeciesFactory;
+import com.fouche.tp3sdprinciples.behavioral.iterator.Item;
+import com.fouche.tp3sdprinciples.behavioral.iterator.Menu;
 import org.testng.Assert;
 import static org.testng.Assert.*;
 import org.testng.annotations.AfterClass;
@@ -21,9 +20,9 @@ import org.testng.annotations.Test;
  *
  * @author foosh
  */
-public class TestAbstractFactory {
+public class TestIterator {
     
-    public TestAbstractFactory() {
+    public TestIterator() {
     }
 
     // TODO add test methods here.
@@ -33,22 +32,19 @@ public class TestAbstractFactory {
     // public void hello() {}
 
     @Test
-     public void TestReptileFact() {
-         AbstractFactory abstractFact = new AbstractFactory();
-         SpeciesFactory speciesFactR = abstractFact.getSpeciesFactory("Reptile");
+     public void hello() {
+         Item i = new Item("cheese snackwhich", 12.59f);
+         Item i1 = new Item("chicken snackwhich", 18.59f);
+         Item i2 = new Item("steak snackwhich", 24.59f);
          
-         Animal snake = speciesFactR.getAnimal("Snake");
-         Assert.assertEquals(snake.makeSound(), "Hiss", "Run Forrest, Run");
-     }
-     
-     public void TestMammalFact() {
-         AbstractFactory abstractFact = new AbstractFactory();
-         SpeciesFactory speciesFactM = abstractFact.getSpeciesFactory("Mammal");
-         Animal cats = speciesFactM.getAnimal("Cat");
-         Assert.assertEquals(cats.makeSound(), "Meow", "Aww");
+         Menu menu = new Menu();
+         menu.addItem(i);
+         menu.addItem(i1);
+         menu.addItem(i2);
+         
+         Assert.assertNotNull(menu);
          
      }
-     
     
     @BeforeClass
     public static void setUpClass() throws Exception {

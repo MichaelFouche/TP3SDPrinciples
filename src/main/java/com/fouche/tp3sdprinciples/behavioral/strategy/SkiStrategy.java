@@ -4,17 +4,18 @@
  * and open the template in the editor.
  */
 
-package com.fouche.tp3sdprinciples.creational.abstractfactory;
-
-
+package com.fouche.tp3sdprinciples.behavioral.strategy;
 
 /**
  *
  * @author foosh
  */
-public class TRex extends Animal{
+public class SkiStrategy implements Strategy{
+
     @Override
-    public String makeSound(){
-        return "Roar";
+    public boolean checkTempreature(int tempreatureInF) {
+       if(tempreatureInF <= 32){return true;}
+       else return false;
     }
+    
 }

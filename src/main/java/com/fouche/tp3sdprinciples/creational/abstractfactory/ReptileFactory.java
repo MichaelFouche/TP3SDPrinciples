@@ -6,7 +6,6 @@
 
 package com.fouche.tp3sdprinciples.creational.abstractfactory;
 
-import com.fouche.tp3sdprinciples.creational.factorymethod.Animal;
 
 /**
  *

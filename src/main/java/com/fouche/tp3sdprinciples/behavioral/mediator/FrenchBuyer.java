@@ -11,8 +11,10 @@ package com.fouche.tp3sdprinciples.behavioral.mediator;
  * @author foosh
  */
 public class FrenchBuyer extends Buyer{
-    public FrenchBuyer(Mediator mediator){
+
+    public FrenchBuyer(Mediator mediator) {
         super(mediator, "euro");
-        this.mediator.regFrenchBuyer(this);
+        this.mediator.registerFrenchBuyer(this);
     }
+    
 }

@@ -11,15 +11,16 @@ package com.fouche.tp3sdprinciples.behavioral.mediator;
  * @author foosh
  */
 public class Buyer {
-     Mediator mediator;
-    String unitOfCurrency;
+    Mediator mediator;
+    String unitOfcurrency;
     
     public Buyer(Mediator mediator, String unitOfCurrency){
-        this.mediator=mediator;
-        this.unitOfCurrency= unitOfCurrency;
+        this.mediator = mediator;
+        this.unitOfcurrency = unitOfCurrency;
     }
+    
     public boolean attemptToPurchase(float bid){
-        System.out.println("buyer attempting bid of "+ bid + " "+ unitOfCurrency);
-        return mediator.placeBid(bid, unitOfCurrency);
+        System.out.println("Buyer attempted a bid of " + bid + " " + unitOfcurrency);
+        return mediator.placeBid(bid, unitOfcurrency);
     }
 }

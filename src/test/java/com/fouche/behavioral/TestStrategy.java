@@ -4,11 +4,11 @@
  * and open the template in the editor.
  */
 
-package com.fouche.creational;
+package com.fouche.behavioral;
 
-import com.fouche.tp3sdprinciples.creational.abstractfactory.AbstractFactory;
-import com.fouche.tp3sdprinciples.creational.abstractfactory.Animal;
-import com.fouche.tp3sdprinciples.creational.abstractfactory.SpeciesFactory;
+import com.fouche.tp3sdprinciples.behavioral.strategy.Context;
+import com.fouche.tp3sdprinciples.behavioral.strategy.SkiStrategy;
+import com.fouche.tp3sdprinciples.behavioral.strategy.Strategy;
 import org.testng.Assert;
 import static org.testng.Assert.*;
 import org.testng.annotations.AfterClass;
@@ -21,9 +21,9 @@ import org.testng.annotations.Test;
  *
  * @author foosh
  */
-public class TestAbstractFactory {
+public class TestStrategy {
     
-    public TestAbstractFactory() {
+    public TestStrategy() {
     }
 
     // TODO add test methods here.
@@ -33,22 +33,12 @@ public class TestAbstractFactory {
     // public void hello() {}
 
     @Test
-     public void TestReptileFact() {
-         AbstractFactory abstractFact = new AbstractFactory();
-         SpeciesFactory speciesFactR = abstractFact.getSpeciesFactory("Reptile");
-         
-         Animal snake = speciesFactR.getAnimal("Snake");
-         Assert.assertEquals(snake.makeSound(), "Hiss", "Run Forrest, Run");
+     public void hello() {
+         int temp = 60;
+         Strategy ski = new SkiStrategy();
+         Context context = new Context(temp, ski);
+         Assert.assertEquals(context.getResult(), false);
      }
-     
-     public void TestMammalFact() {
-         AbstractFactory abstractFact = new AbstractFactory();
-         SpeciesFactory speciesFactM = abstractFact.getSpeciesFactory("Mammal");
-         Animal cats = speciesFactM.getAnimal("Cat");
-         Assert.assertEquals(cats.makeSound(), "Meow", "Aww");
-         
-     }
-     
     
     @BeforeClass
     public static void setUpClass() throws Exception {

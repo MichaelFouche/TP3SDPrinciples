@@ -6,18 +6,10 @@
 
 package com.fouche.tp3sdprinciples.creational.abstractfactory;
 
-
-
 /**
  *
  * @author foosh
  */
-public class MammalFactory extends SpeciesFactory{
-    @Override
-    public Animal getAnimal(String type){
-        if("Canine".equals(type))
-            return new Snake();
-        else
-            return new Snake();
-    }
+public abstract class Animal {
+    public abstract String makeSound(); 
 }

@@ -4,11 +4,11 @@
  * and open the template in the editor.
  */
 
-package com.fouche.creational;
+package com.fouche.behavioral;
 
-import com.fouche.tp3sdprinciples.creational.abstractfactory.AbstractFactory;
-import com.fouche.tp3sdprinciples.creational.abstractfactory.Animal;
-import com.fouche.tp3sdprinciples.creational.abstractfactory.SpeciesFactory;
+import com.fouche.tp3sdprinciples.behavioral.observer.WeatherCustomer1;
+import com.fouche.tp3sdprinciples.behavioral.observer.WeatherCustomer2;
+import com.fouche.tp3sdprinciples.behavioral.observer.WeatherStation;
 import org.testng.Assert;
 import static org.testng.Assert.*;
 import org.testng.annotations.AfterClass;
@@ -21,9 +21,9 @@ import org.testng.annotations.Test;
  *
  * @author foosh
  */
-public class TestAbstractFactory {
+public class TestObserver {
     
-    public TestAbstractFactory() {
+    public TestObserver() {
     }
 
     // TODO add test methods here.
@@ -33,22 +33,15 @@ public class TestAbstractFactory {
     // public void hello() {}
 
     @Test
-     public void TestReptileFact() {
-         AbstractFactory abstractFact = new AbstractFactory();
-         SpeciesFactory speciesFactR = abstractFact.getSpeciesFactory("Reptile");
-         
-         Animal snake = speciesFactR.getAnimal("Snake");
-         Assert.assertEquals(snake.makeSound(), "Hiss", "Run Forrest, Run");
+     public void hello() {
+         WeatherStation ws = new WeatherStation(65);
+         WeatherCustomer1 w1 = new WeatherCustomer1();
+         WeatherCustomer2 w2 = new WeatherCustomer2();
+         ws.addObserver(w1);
+         ws.addObserver(w2);
+         ws.setTempreature(64);
+         Assert.assertEquals(ws.getTempreature(), 64);
      }
-     
-     public void TestMammalFact() {
-         AbstractFactory abstractFact = new AbstractFactory();
-         SpeciesFactory speciesFactM = abstractFact.getSpeciesFactory("Mammal");
-         Animal cats = speciesFactM.getAnimal("Cat");
-         Assert.assertEquals(cats.makeSound(), "Meow", "Aww");
-         
-     }
-     
     
     @BeforeClass
     public static void setUpClass() throws Exception {

@@ -4,11 +4,15 @@
  * and open the template in the editor.
  */
 
-package com.fouche.creational;
+package com.fouche.behavioral;
 
-import com.fouche.tp3sdprinciples.creational.abstractfactory.AbstractFactory;
-import com.fouche.tp3sdprinciples.creational.abstractfactory.Animal;
-import com.fouche.tp3sdprinciples.creational.abstractfactory.SpeciesFactory;
+import com.fouche.tp3sdprinciples.behavioral.visitor.NumberElement;
+import com.fouche.tp3sdprinciples.behavioral.visitor.NumberVisitor;
+import com.fouche.tp3sdprinciples.behavioral.visitor.SumVisitor;
+import com.fouche.tp3sdprinciples.behavioral.visitor.ThreeElement;
+import com.fouche.tp3sdprinciples.behavioral.visitor.TwoElement;
+import java.util.ArrayList;
+import java.util.List;
 import org.testng.Assert;
 import static org.testng.Assert.*;
 import org.testng.annotations.AfterClass;
@@ -21,9 +25,9 @@ import org.testng.annotations.Test;
  *
  * @author foosh
  */
-public class TestAbstractFactory {
+public class TestVisitor {
     
-    public TestAbstractFactory() {
+    public TestVisitor() {
     }
 
     // TODO add test methods here.
@@ -33,22 +37,18 @@ public class TestAbstractFactory {
     // public void hello() {}
 
     @Test
-     public void TestReptileFact() {
-         AbstractFactory abstractFact = new AbstractFactory();
-         SpeciesFactory speciesFactR = abstractFact.getSpeciesFactory("Reptile");
+     public void hello() {
+         TwoElement two1 = new TwoElement(3,9);
+         ThreeElement three1 = new ThreeElement(3,6,9);
+         List<NumberElement> numberElements = new ArrayList<>();
+         NumberVisitor sumVisitor = new SumVisitor();
+         numberElements.add(two1);
+         numberElements.add(three1);
+         sumVisitor.visit(numberElements);
          
-         Animal snake = speciesFactR.getAnimal("Snake");
-         Assert.assertEquals(snake.makeSound(), "Hiss", "Run Forrest, Run");
-     }
-     
-     public void TestMammalFact() {
-         AbstractFactory abstractFact = new AbstractFactory();
-         SpeciesFactory speciesFactM = abstractFact.getSpeciesFactory("Mammal");
-         Animal cats = speciesFactM.getAnimal("Cat");
-         Assert.assertEquals(cats.makeSound(), "Meow", "Aww");
+         Assert.assertNotNull(numberElements);
          
      }
-     
     
     @BeforeClass
     public static void setUpClass() throws Exception {

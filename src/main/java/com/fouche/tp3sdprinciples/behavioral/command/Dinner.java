@@ -4,16 +4,14 @@
  * and open the template in the editor.
  */
 
-package com.fouche.tp3sdprinciples.creational.abstractfactory;
-
+package com.fouche.tp3sdprinciples.behavioral.command;
 
 /**
  *
  * @author foosh
  */
-public class Snake extends Animal{
-     @Override
-    public String makeSound(){
-        return "Hiss";
+public class Dinner {
+    public void makeDinner(){
+        System.out.println("Dinner is being made");
     }
 }
